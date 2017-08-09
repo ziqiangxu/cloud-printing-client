@@ -5,7 +5,7 @@ Microsoft Windows操作系统
 Python3 [下载地址](https://www.python.org/)    
 对应版本扩展库pywin32 [下载地址](https://sourceforge.net/projects/pywin32/files/pywin32/Build%20221/)
 可能pywin32的下载地址国内无法访问，可以在仓库的setup文件夹获取3.6版本的安装包
-> 开发时使用Python3.6
+> 开发时使用Python3.6    
 安装方法：    
 执行setup目录下的setup.py    
 使用方法：    
