@@ -2,7 +2,7 @@
 import getpass
 import json
 import os
-from source import printer
+from bin import printer
 import re
 import shutil
 def get_config():
