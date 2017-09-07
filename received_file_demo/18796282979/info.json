@@ -1,5 +1,11 @@
 {
-  "user": {"user_id": "18796282979", "user_name": "Ðí×ÔÇ¿", "status": "received"},
+  "user": {
+	  "user_id": "18796282979",
+	  "user_name": "xuziqiang",
+	  "file_count": 2, 
+	  "status": "received",
+	  "comment: "Just for test!"
+  },
   "1.pdf": {"copies": 3},
   "2.pdf": {"copies": 2},
   "serial_number" : "11111111111"

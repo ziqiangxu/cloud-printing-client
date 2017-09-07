@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 # 主程序
 # 已知漏洞：如果一个用户有多个文件，中间可能夹带其他打印机的任务
 import getpass
