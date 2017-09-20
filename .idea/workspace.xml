@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20dd7d67-9a28-48ba-8b0b-fc941eada7b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/preferred-vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/receiver.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/recycle_bin/main1.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/main0.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/install_files/config.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recycle_bin/main1.1.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/user/1.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/user/readme.md" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/printer.iml" afterPath="$PROJECT_DIR$/.idea/printer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/.idea/workspace.xml" afterPath="$PROJECT_DIR$/bin/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/main.py" afterPath="$PROJECT_DIR$/bin/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/printer.py" afterPath="$PROJECT_DIR$/bin/printer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recycle_bin/win32test.py" afterPath="$PROJECT_DIR$/recycle_bin/win32test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/receiver.py" afterPath="$PROJECT_DIR$/bin/receiver.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/test.py" afterPath="$PROJECT_DIR$/bin/test.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,66 +20,7 @@
     <favorites_list name="printer" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bin/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-              <folding>
-                <element signature="e#215#437#0" expanded="false" />
-                <element signature="e#490#700#0" expanded="false" />
-                <element signature="e#1075#3056#0" expanded="false" />
-                <element signature="e#3263#3322#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="info.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/received_file_demo/18796282979/info.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="33" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="setup.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/setup/setup.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="receiver.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/receiver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="printer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/printer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="817">
-              <caret line="48" column="62" lean-forward="false" selection-start-line="48" selection-start-column="62" selection-end-line="48" selection-end-column="62" />
-              <folding>
-                <element signature="e#161#170#0" expanded="true" />
-                <element signature="e#612#650#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -131,11 +61,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-7" />
+    <option name="y" value="3" />
+    <option name="width" value="812" />
+    <option name="height" value="565" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -203,6 +133,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Default">
           <expand>
@@ -210,16 +141,20 @@
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="cloud_printer" type="cbb8eebc:String" user="cloud_printer" />
             </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="cloud_printer" type="cbb8eebc:String" user="cloud_printer" />
+              <item name="bin" type="cbb8eebc:String" user="bin" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/bin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -454,7 +389,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -464,7 +399,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27704918" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294509" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18532526" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.108169444" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39836067" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -604,30 +539,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/receiver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/received_file_demo/18796282979/info.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="33" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+        <state relative-caret-position="0">
+          <caret line="0" column="173" lean-forward="false" selection-start-line="0" selection-start-column="173" selection-end-line="0" selection-end-column="173" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/printer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="48" column="62" lean-forward="false" selection-start-line="48" selection-start-column="62" selection-end-line="48" selection-end-column="62" />
-          <folding>
-            <element signature="e#161#170#0" expanded="true" />
-            <element signature="e#612#650#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -642,13 +558,24 @@
     <entry file="file://$PROJECT_DIR$/bin/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
-          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding>
-            <element signature="e#215#437#0" expanded="false" />
-            <element signature="e#490#700#0" expanded="false" />
-            <element signature="e#1075#3056#0" expanded="false" />
-            <element signature="e#3263#3322#0" expanded="false" />
-          </folding>
+          <caret line="6" column="14" lean-forward="true" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/receiver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/printer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="48" column="16" lean-forward="false" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
