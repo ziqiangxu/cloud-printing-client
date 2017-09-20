@@ -3,12 +3,12 @@
 # 已知漏洞：如果一个用户有多个文件，中间可能夹带其他打印机的任务
 import getpass
 import os
-import bin.printer
+import printer
 import time
 import threading
-import bin.receiver as receiver
-import bin.json_read_write as json_wr
-import bin.printer as printer
+import receiver as receiver
+import json_read_write as json_wr
+import printer as printer
 
 user_name = getpass.getuser()
 WHERE = "main:"

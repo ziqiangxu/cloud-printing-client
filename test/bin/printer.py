@@ -10,7 +10,7 @@ import time
 import win32print
 import win32api
 import re
-import bin.json_read_write as json_wr
+import json_read_write as json_wr
 
 WHERE = "printer"
 
