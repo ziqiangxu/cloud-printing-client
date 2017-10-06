@@ -20,6 +20,7 @@ def connect():
         except TimeoutError:
             print(WHERE, "连接ftp超时")
         try:
+            # 发现把这个弄到Github上来太不安全了，还是改密码吧
             ftp.login('vsftp', 'abc123cloud')
             print(WHERE, "登录成功")
         except:
