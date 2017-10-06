@@ -68,6 +68,8 @@ class ThreadPrintReceived (threading.Thread):
     def run(self):
         print(WHERE, "开始线程：" + self.name)
         print_received_files()
+
+
 print_thread1 = ThreadPrintReceived(1, "print_receive_files")
 print_thread1.start()
 
@@ -86,8 +88,11 @@ class ThreadPrintLocal (threading.Thread):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.name = name
+
     def run(self):
         print ("main:开始线程：" + self.name)
         print_local_files()
+
+
 local_print_thread1 = ThreadPrintLocal(1, "print_local_files")
 local_print_thread1.start()

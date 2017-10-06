@@ -1,7 +1,7 @@
 from ftplib import FTP
 import os
 import time
-import json_read_write
+import bin.json_read_write as json_read_write
 HOME_PATH = '/home/cloud_printing/received_files/'
 HOME_PATH_LOCAL = 'C:\\printer\\received'
 WHERE = "receiver:"
@@ -68,6 +68,7 @@ def start():
             print(WHERE, "获取任务号列表成功", task_list)
         except:
             print(WHERE, "获取任务号列表失败")
+            time.sleep(5)
         # 测试区域
         for task2 in task_list:
             task2 = task2.split("/").pop()
@@ -86,4 +87,4 @@ def start():
                 '''
         time.sleep(5)
         print(WHERE, "download程序循环运行")
-
+start()

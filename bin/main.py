@@ -4,12 +4,12 @@
 import getpass
 import json
 import os
-import printer
+import bin.printer as printer
 import re
 import win32api
 import time
 import threading
-import receiver2
+import bin.receiver2 as receiver2
 
 
 def get_json(json_path,json_name):
