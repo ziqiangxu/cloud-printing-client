@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="20dd7d67-9a28-48ba-8b0b-fc941eada7b8" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/.idea/bin.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/.idea/preferred-vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/.idea/workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/main.py" afterPath="$PROJECT_DIR$/bin/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/receiver2.py" afterPath="$PROJECT_DIR$/bin/receiver2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/bin/.idea/workspace.xml" afterPath="$PROJECT_DIR$/test/bin/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/bin/main.py" afterPath="$PROJECT_DIR$/test/bin/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/bin/receiver.py" afterPath="$PROJECT_DIR$/test/bin/receiver.py" />
-    </list>
+    <list default="true" id="20dd7d67-9a28-48ba-8b0b-fc941eada7b8" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -65,9 +52,20 @@
         <entry file="file://$PROJECT_DIR$/bin/receiver2.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="257">
-              <caret line="72" column="23" lean-forward="false" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
+              <caret line="73" column="23" lean-forward="false" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
+                <marker date="1507283955957" expanded="true" signature="232:751" ph="..." />
+                <marker date="1507283955957" expanded="true" signature="241:718" ph="..." />
+                <marker date="1507283955957" expanded="true" signature="528:649" ph="..." />
+                <marker date="1507283955957" expanded="true" signature="782:1666" ph="..." />
+                <marker date="1507283955957" expanded="true" signature="1071:1152" ph="..." />
+                <marker date="1507283955957" expanded="true" signature="1179:1380" ph="..." />
+                <marker date="1507283955957" expanded="true" signature="1829:1939" ph="..." />
+                <marker date="1507283955957" expanded="true" signature="1955:2019" ph="..." />
+                <marker date="1507283955957" expanded="true" signature="2066:2647" ph="..." />
+                <marker date="1507283955957" expanded="true" signature="2239:2398" ph="..." />
+                <marker date="1507283955957" expanded="true" signature="2411:2647" ph="'''...'''" />
               </folding>
             </state>
           </provider>
@@ -76,7 +74,7 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
+            <state relative-caret-position="-523">
               <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -128,7 +126,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="713" />
+    <option name="x" value="523" />
     <option name="width" value="734" />
     <option name="height" value="867" />
   </component>
@@ -438,16 +436,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11103152" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1172466" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.275817" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294509" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22506739" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22506739" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294509" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39836067" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -621,16 +619,27 @@
     <entry file="file://$PROJECT_DIR$/bin/receiver2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
-          <caret line="72" column="23" lean-forward="false" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
+          <caret line="73" column="23" lean-forward="false" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
+            <marker date="1507283955957" expanded="true" signature="232:751" ph="..." />
+            <marker date="1507283955957" expanded="true" signature="241:718" ph="..." />
+            <marker date="1507283955957" expanded="true" signature="528:649" ph="..." />
+            <marker date="1507283955957" expanded="true" signature="782:1666" ph="..." />
+            <marker date="1507283955957" expanded="true" signature="1071:1152" ph="..." />
+            <marker date="1507283955957" expanded="true" signature="1179:1380" ph="..." />
+            <marker date="1507283955957" expanded="true" signature="1829:1939" ph="..." />
+            <marker date="1507283955957" expanded="true" signature="1955:2019" ph="..." />
+            <marker date="1507283955957" expanded="true" signature="2066:2647" ph="..." />
+            <marker date="1507283955957" expanded="true" signature="2239:2398" ph="..." />
+            <marker date="1507283955957" expanded="true" signature="2411:2647" ph="'''...'''" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
+        <state relative-caret-position="-523">
           <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
