@@ -1,9 +1,12 @@
-# coding = gbk
 # 主程序
 # 已知漏洞：如果一个用户有多个文件，中间可能夹带其他打印机的任务
 import getpass
 import json
 import os
+import sys
+bin_path = os.getcwd()[:-4]
+sys.path.append(bin_path)
+print(sys.path)
 import bin.printer as printer
 import re
 import win32api
@@ -34,8 +37,8 @@ print("main:当前电脑用户名是："+user_name)
 WORK_PATH = "c:\\printer\\received\\"
 os.chdir(WORK_PATH)    # 把当前目录切换到/printer/received下
 print("main:当前工作目录是"+os.getcwd())
-config = get_json("c:\\printer",'config.json')    # 从config.json文件读取配置信息
-print(config)    # 显示当前的配置信息
+# config = get_json("c:\\printer",'config.json')    # 从config.json文件读取配置信息
+# print(config)    # 显示当前的配置信息
 # 线程1：接收服务器的文件
 
 
