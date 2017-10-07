@@ -1,8 +1,9 @@
 from urllib.request import urlopen
-import re
-import json
+import os
 SITE = "http://yixiu.life:8000"
-LOCAL_PATH = "/printer/rec"
+LOCAL_PATH = "\\printer\\received"
+WHERE = "receiver3"
+
 
 def get_task():
     tel = '18796282979'
@@ -14,15 +15,36 @@ def get_task():
     return task_path
 
 
-def get_info():
+def file_url(tel, task_ID):
+    url =SITE + "/download/?path=/home/cloud_printing/received_files/%s/%s" % (tel, task_ID)
+    return url
+
+
+def get_files():
     for path in get_task():
         fragment = path.split("/")
         tel = fragment[-3]
         task_ID = fragment[-2]
         files = fragment[-1].split(",")
-    with open("%s")
-        #info = info.read().split("/")(-3)
-        #with open("/printer/received/%s/%s/info.json" % , "wb") as f:
-         #   f.write(info.read())
+        task_path = os.path.join(LOCAL_PATH, tel, task_ID)
+        # os.makedirs(task_path, 0o777, True)
+        try:
+            os.makedirs(task_path)
+        except:
+            print(WHERE, "文件夹已存在，创建任务路径失败")
+        for file in files:
+            url = file_url(tel, task_ID) + "/" + file
+            print(url)
+            try:
+                with open(os.path.join(task_path, file), "wb") as f:
+                    try:
+                        file_stream = urlopen(url)
+                    except:
+                        print(WHERE, "从服务器获取文件失败")
+                    f.write(file_stream.read())
+                    # 给服务器发送消息，修改任务状态
 
-get_info()
+            except:
+                print(WHERE, "保存文件失败")
+
+get_files()
