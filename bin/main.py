@@ -9,7 +9,7 @@ import re
 import win32api
 import time
 import threading
-import bin.receiver2 as receiver2
+import bin.receiver3 as receiver
 
 
 def get_json(json_path,json_name):
@@ -45,9 +45,9 @@ class ThreadReceiver(threading.Thread):
         self.threadID = threadID
         self.name = name
     def run(self):
-        receiver2.start()
+        receiver.start()
         print("main:开始线程："+ self.name)
-receiver1 = ThreadReceiver(1, "receiver1")
+receiver1 = ThreadReceiver(1, "receiver")
 receiver1.start()
 # 线程2：打印接收完毕的文件
 
@@ -71,8 +71,10 @@ def print_received_files():
                         if status == 'received':  # 判断文件是否传输完毕
                             print("main:received")
                             print("main:" + task + "的所有文件已经传输完毕，开始打印")
-                            change_json("C:\\printer", "config.json", config)
-                            printer.print_files(task_abspath + '\\')  # 打印task目录下的文档，只需向printer函数提交一个绝对路径就可
+                            # change_json("C:\\printer", "config.json", config)
+                            print(task_abspath)
+                            printer.print_files(task_abspath + '\\')
+                            # 打印task目录下的文档，只需向printer函数提交一个绝对路径就可
                             # 以打印该目录所有的文档
                             message = '用户' + task + '已经打印'
                             win32api.MessageBox(0, message, '提示信息', 1)

@@ -20,6 +20,8 @@ def task():    # 获取默认打印机的工作状态
     return printer_info["cJobs"]    # 获取当前打印机任务数目
 def __doc__():
     return("receiver:这是打印文档的核心函数，需要传入打印文件夹的路径作为参数")
+
+
 def print_files(task_path):    # 本函数将根据info.json要求打印目标文件夹的所有文件
     get_info = open(os.path.join(task_path, "info.json"),"r")    # 读取文件夹的info.json文件，获取任务详情
     info = json.load(get_info)
@@ -28,7 +30,7 @@ def print_files(task_path):    # 本函数将根据info.json要求打印目标�
     file_list = os.listdir(task_path)    # 获取目标文件夹下的文件列表
     file_list.remove("info.json")    # 删除列表中的“info.json”元素，这不是需要打印的文件
     for file_name in file_list:
-        copies = info[file_name]["copies"]    #获取打印份数
+        copies = int(info[file_name]["copies"])    #获取打印份数
         printing_copies = 1
         for j in range(copies):
             try:
