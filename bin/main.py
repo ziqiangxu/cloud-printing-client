@@ -4,15 +4,15 @@ import getpass
 import json
 import os
 import sys
-bin_path = os.getcwd()[:-4]
-sys.path.append(bin_path)
-print(sys.path)
 import bin.printer as printer
 import re
 import win32api
 import time
 import threading
 import bin.receiver3 as receiver
+bin_path = os.getcwd()[:-4]
+sys.path.append(bin_path)
+print(sys.path)
 
 
 def get_json(json_path,json_name):
@@ -47,9 +47,12 @@ class ThreadReceiver(threading.Thread):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.name = name
+
     def run(self):
         receiver.start()
         print("main:开始线程："+ self.name)
+
+
 receiver1 = ThreadReceiver(1, "receiver")
 receiver1.start()
 # 线程2：打印接收完毕的文件
@@ -114,6 +117,8 @@ class ThreadPrintReceived (threading.Thread):
     def run(self):
         print ("main:开始线程：" + self.name)
         print_received_files()
+
+
 print_thread1 = ThreadPrintReceived(1, "print_receive_files")
 print_thread1.start()
 
@@ -135,5 +140,7 @@ class ThreadPrintLocal (threading.Thread):
     def run(self):
         print ("main:开始线程：" + self.name)
         print_local_files()
+
+
 local_print_thread1 = ThreadPrintLocal(1, "print_local_files")
 local_print_thread1.start()
