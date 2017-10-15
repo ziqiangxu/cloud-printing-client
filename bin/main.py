@@ -42,6 +42,7 @@ class ThreadPrintLocal (threading.Thread):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.name = name
+
     def run(self):
         print ("main:开始线程：" + self.name)
         manager.print_local_files()

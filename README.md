@@ -14,8 +14,8 @@ ild%20221/)
 > 开发时使用Python3.6    
 
 安装方法：    
-执行setup目录下的setup.py    
+执行setup目录下的setup.py初始化，创建工作目录
 使用方法：    
-安装完之后执行c:\printer\bin\main.py即可    
+安装完之后执行bin目录下的main.py即可    
 
 欢迎来件交流[我的邮箱](mailto:ziqiang_xu@yeah.net)
