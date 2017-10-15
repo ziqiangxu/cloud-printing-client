@@ -2,14 +2,18 @@ from urllib.request import urlopen
 import os
 import time
 import bin.json_read_write as json_read_write
-SITE = "http://yixiu.life:8000"
+import win32api
+config = json_read_write.read("c:\\printer\\config.json")
+SITE = config["site"]
 LOCAL_PATH = "\\printer\\received"
 WHERE = "receiver3"
+shop_tel = config["shop_tel"]
+if not shop_tel:
+    win32api.MessageBox(None, "请在C:\\printer\config.json文件填入您的账号和密码!")
 
 
 def get_task():
-    tel = '18796282979'
-    path_url = "%s/get_task/?tel=%s&num=0" % (SITE, tel)
+    path_url = "%s/get_task/?tel=%s&num=0" % (SITE, shop_tel)
     result = urlopen(path_url)
     result_str = str(result.read())
     task_path = result_str[2:-1].split("*")
@@ -69,3 +73,4 @@ def start():
         time.sleep(10)
 
 # start()
+
