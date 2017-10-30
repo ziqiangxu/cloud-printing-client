@@ -1,14 +1,12 @@
 # 主程序
 # 已知漏洞：如果一个用户有多个文件，中间可能夹带其他打印机的任务
 import getpass
-import json
 import os
 import sys
 bin_path = os.getcwd()[:-4]  # cloud_printing_client作为工作目录
 sys.path.append(bin_path)
 print("类库文件扫描路径", sys.path)
 import threading
-import bin.receiver3 as receiver
 import bin.manager as manager
 
 user_name = getpass.getuser()    # 获取当前用户名Get the username
@@ -22,7 +20,7 @@ class ThreadReceiver(threading.Thread):
         self.name = name
 
     def run(self):
-        receiver.start()
+        manager.receiver()
         print("main:开始线程："+ self.name)
 
 

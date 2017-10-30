@@ -65,12 +65,9 @@ def get_files():
 
 
 def start():
-    while True:
-        try:
-            get_files()
-        except:
-            print(WHERE, "下载任务失败")
-        time.sleep(10)
+    try:
+        get_files()
+    except:
+        print(WHERE, "下载任务失败")
 
-# start()
 

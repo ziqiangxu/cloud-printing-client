@@ -4,6 +4,7 @@ import time
 import re
 import bin.json_read_write as json_read_write
 import win32api
+import bin.receiver3 as receiver3
 WORK_PATH = "c:\\printer\\received\\"
 os.chdir(WORK_PATH)    # 把当前目录切换到/printer/received下
 print("main:当前工作目录是"+os.getcwd())
@@ -66,3 +67,7 @@ def print_received_files():
         time.sleep(10)  # 两秒扫描一次文件目录
 
 
+def receiver():
+    while True:
+        receiver3.start()
+        time.sleep(10)
