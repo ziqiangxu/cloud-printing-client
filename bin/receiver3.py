@@ -71,3 +71,5 @@ def start():
         print(WHERE, "下载任务失败")
 
 
+start()
+

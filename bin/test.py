@@ -53,26 +53,24 @@ class MainWindow(QMainWindow):
         # 填充tabs
 
         def double_click(item):
-            QMessageBox.information(self, "提示", "开始打印任务%s" % item.text())
+            where = printing_tasks.currentRow()
+            print(where, item.data(1))
             printed_tasks.addItem(item.text())
-            printing_tasks.takeItem(printing_tasks.currentRow())
-            print(item.data(printing_tasks.currentRow()))
+            printing_tasks.takeItem(where)
+            # QMessageBox.information(self, "提示", "开始打印任务%s" % item.text())
 
         printing_tasks = QListWidget(tabs.tab1)
         printed_tasks = QListWidget(tabs.tab2)
         printing_tasks.setFixedSize(windows_width - 20, tabs.tab1.height())
         printed_tasks.setFixedSize(windows_width - 20, tabs.tab1.height())
-        tasks = os.listdir("/")
+        tasks = os.listdir("/printer/received/18796282979")
         index = 0
         for i in tasks:
-            print(i)
             printing_tasks.addItem(i)
-            printing_tasks.item(index).setData(index, "path" + str(index))
+            item_instance = printing_tasks.item(index)
+            item_instance.setData(1, "test%d" % index)
             index += 1
-            print(index)
         printing_tasks.itemDoubleClicked.connect(double_click)
-
-
 
 
 if __name__ == "__main__":
