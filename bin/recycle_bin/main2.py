@@ -7,7 +7,7 @@ bin_path = os.getcwd()[:-4]  # cloud_printing_client作为工作目录
 sys.path.append(bin_path)
 print("类库文件扫描路径", sys.path)
 import threading
-import bin.manager as manager
+import bin.recycle_bin.manager as manager
 
 user_name = getpass.getuser()    # 获取当前用户名Get the username
 print("main:当前电脑用户名是："+user_name)
@@ -50,8 +50,8 @@ class ThreadPrintLocal (threading.Thread):
 receiver1 = ThreadReceiver(1, "receiver")
 receiver1.start()
 # 线程2：打印接收完毕的文件
-print_thread1 = ThreadPrintReceived(1, "print_receive_files")
-print_thread1.start()
+# print_thread1 = ThreadPrintReceived(1, "print_receive_files")
+# print_thread1.start()
 # 线程3：打印local_task的文件
-local_print_thread1 = ThreadPrintLocal(1, "print_local_files")
-local_print_thread1.start()
+# local_print_thread1 = ThreadPrintLocal(1, "print_local_files")
+# local_print_thread1.start()

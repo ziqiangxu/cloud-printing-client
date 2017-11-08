@@ -1,67 +1,12 @@
-# 主程序
-# 已知漏洞：如果一个用户有多个文件，中间可能夹带其他打印机的任务
-import getpass
-import os
-import sys
-bin_path = os.getcwd()[:-4]  # cloud_printing_client作为工作目录
-sys.path.append(bin_path)
-print("类库文件扫描路径", sys.path)
-import bin.recycle_bin.printer as printer
-import re
-import win32api
 import time
 import threading
-import bin.recycle_bin.receiver3 as receiver
-import bin.lib.json_read_write as json_read_write
+import bin.lib.receiver3 as receiver
 
 '''
-def get_json(json_path,json_name):
-    old_path = os.getcwd()  # 记录原来所在目录
-    os.chdir(json_path)  # 切换到任务路径
-    read_config = open(json_name, 'r')
-    content = json.load(read_config)
-    read_config.close()
-    os.chdir(old_path)  # 回到原来的目录
-    return content
-def change_json(json_path,json_name,json_dict):
-    old_path=os.getcwd()#记录原来所在目录
-    os.chdir(json_path)#切换到任务路径
-    wirte_json = open(json_name, "w")
-    json.dump(json_dict, wirte_json)
-    wirte_json.close()
-    os.chdir(old_path)#回到原来的目录
-    return '信息更新成功'
-'''
-
-
-
-######################################################
-
-
-user_name = getpass.getuser()    # 获取当前用户名Get the username
-print("main:当前电脑用户名是："+user_name)
-WORK_PATH = "c:\\printer\\received\\"
-os.chdir(WORK_PATH)    # 把当前目录切换到/printer/received下
-print("main:当前工作目录是"+os.getcwd())
-# config = get_json("c:\\printer",'config.json')    # 从config.json文件读取配置信息
-# print(config)    # 显示当前的配置信息
-# 线程1：接收服务器的文件
-
-
-class ThreadReceiver(threading.Thread):
-    def __init__(self, threadID, name):
-        threading.Thread.__init__(self)
-        self.threadID = threadID
-        self.name = name
-
-    def run(self):
-        receiver.start()
-        print("main:开始线程："+ self.name)
-
-
-receiver1 = ThreadReceiver(1, "receiver")
-receiver1.start()
-# 线程2：打印接收完毕的文件
+def print_local_files():
+    while True:
+        printer.print_local_task("c:\\printer\\local_task\\")
+        time.sleep(2)    # 2秒扫描一次文件夹
 
 
 def print_received_files():
@@ -113,8 +58,28 @@ def print_received_files():
         except:
             print("main:打印收到文件出错")
         time.sleep(10)  # 两秒扫描一次文件目录
+'''
 
 
+class ThreadReceiver(threading.Thread):
+    def __init__(self, threadID, name):
+        threading.Thread.__init__(self)
+        self.threadID = threadID
+        self.name = name
+
+    def receiver(self):
+        # 每10秒从服务器获取一次文件
+        while True:
+            print("开始执行下载程序")
+            receiver.start()
+            print("下载程序执行完毕")
+            time.sleep(10)
+
+    def run(self):
+        self.receiver()
+        print("main:开始线程："+ self.name)
+
+'''
 class ThreadPrintReceived (threading.Thread):
     def __init__(self, threadID, name):
         threading.Thread.__init__(self)
@@ -123,20 +88,7 @@ class ThreadPrintReceived (threading.Thread):
 
     def run(self):
         print ("main:开始线程：" + self.name)
-        print_received_files()
-
-
-print_thread1 = ThreadPrintReceived(1, "print_receive_files")
-print_thread1.start()
-
-
-# 线程3：打印local_task的文件
-
-
-def print_local_files():
-    while True:
-        printer.print_local_task("c:\\printer\\local_task\\")
-        time.sleep(2)    # 2秒扫描一次文件夹
+        manager.print_received_files()
 
 
 class ThreadPrintLocal (threading.Thread):
@@ -144,10 +96,18 @@ class ThreadPrintLocal (threading.Thread):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.name = name
+
     def run(self):
         print ("main:开始线程：" + self.name)
-        print_local_files()
+        manager.print_local_files()
+'''
 
-
-local_print_thread1 = ThreadPrintLocal(1, "print_local_files")
-local_print_thread1.start()
+# 线程1：接收服务器的文件
+# receiver1 = ThreadReceiver(1, "receiver")
+# receiver1.start()
+# 线程2：打印接收完毕的文件
+# print_thread1 = ThreadPrintReceived(1, "print_receive_files")
+# print_thread1.start()
+# 线程3：打印local_task的文件
+# local_print_thread1 = ThreadPrintLocal(1, "print_local_files")
+# local_print_thread1.start()

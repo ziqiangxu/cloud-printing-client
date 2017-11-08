@@ -1,5 +1,5 @@
-#安装程序
-#创建必要的工作目录和复制执行代码
+# 安装程序
+# 创建必要的工作目录和复制执行代码
 import os
 import shutil
 import win32api

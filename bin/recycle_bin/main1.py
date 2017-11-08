@@ -1,10 +1,10 @@
 import getpass
 import json
 import os
-from bin import printer
 import re
-import win32api
-import time
+
+from bin.recycle_bin import printer
+
 
 def get_json(json_path,json_name):
     old_path = os.getcwd()  # 记录原来所在目录
@@ -42,7 +42,7 @@ for task in received_file_list:
         status=info['user']['status']
         if  status=='received':#判断文件是否传输完毕
             print(task+"的所有文件已经传输完毕，开始打印")
-            printer.print_files(task_abspath+'/')#打印task目录下的文档，只需向printer函数提交一个绝对路径就可以打印该目录所有的文档
+            printer.print_files(task_abspath + '/')#打印task目录下的文档，只需向printer函数提交一个绝对路径就可以打印该目录所有的文档
             info['user']['status']='printing'#把处理状态修改为printing
             print('当前目录为：',os.getcwd())
             change_json(task_abspath,'info.json',info)#写入info信息，修改status的状态

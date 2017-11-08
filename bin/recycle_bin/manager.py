@@ -1,10 +1,12 @@
 import os
-import bin.printer as printer
-import time
 import re
-import bin.json_read_write as json_read_write
+import time
 import win32api
-import bin.receiver3 as receiver3
+
+import bin.lib.json_read_write as json_read_write
+import bin.recycle_bin.printer as printer
+import bin.recycle_bin.receiver3 as receiver3
+
 WORK_PATH = "c:\\printer\\received\\"
 os.chdir(WORK_PATH)    # 把当前目录切换到/printer/received下
 print("main:当前工作目录是"+os.getcwd())

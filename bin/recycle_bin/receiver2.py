@@ -1,7 +1,9 @@
-from ftplib import FTP
 import os
 import time
-import bin.json_read_write as json_read_write
+from ftplib import FTP
+
+import bin.lib.json_read_write as json_read_write
+
 HOME_PATH = '/home/cloud_printing/received_files/'
 HOME_PATH_LOCAL = 'C:\\printer\\received'
 WHERE = "receiver:"

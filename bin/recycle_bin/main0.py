@@ -2,9 +2,12 @@
 import getpass
 import json
 import os
-from bin import printer
 import re
 import shutil
+
+from bin.recycle_bin import printer
+
+
 def get_config():
     read_config = open("config.json", 'r')
     config = json.load(read_config)
