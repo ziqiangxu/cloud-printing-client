@@ -11,19 +11,20 @@ import bin.lib.data_sqlite as data_sqlite
 import bin.lib.printer as printer
 import bin.units as units
 import bin.settings as settings
+import bin.lib.commands as commands
 
 task_dict = {}
 WHERE = 'mainwindow.py'
 
+
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
-        self.status = self.statusBar()
-        self.status.showMessage("This is toolbar tips")
         self.setWindowTitle("cloud_print_client")
         windows_width = 800
         windows_height = 400
         self.setFixedSize(windows_width, windows_height)
+        # self.setWindowFlag(Qt.FramelessWindowHint)
         # ** 界面布局 ** #
         # 打印机名称
         printer_name = QLabel(self)
@@ -61,9 +62,9 @@ class MainWindow(QMainWindow):
 
         # ** 创建QListWidget控件 ** #
         self.waiting_tasks = QListWidget(tabs.tab1)
-        self.waiting_tasks.setFixedSize(windows_width - 20, tabs.tab1.height())
+        self.waiting_tasks.setFixedSize(windows_width - 30, tabs.tab1.height() - 160)
         self.printed_tasks = QListWidget(tabs.tab2)
-        self.printed_tasks.setFixedSize(windows_width - 20, tabs.tab1.height())
+        self.printed_tasks.setFixedSize(windows_width - 30, tabs.tab1.height() - 160)
         # 填充tabs
         self.fill_tabs()
         # 每5秒刷新一次tabs内容
@@ -73,9 +74,11 @@ class MainWindow(QMainWindow):
 
         # ** 信号-槽绑定 ** #
         self.waiting_tasks.itemDoubleClicked.connect(self.double_click)
+        # quit.clicked.connect(self.test)
 
         # ** 开启其它模块 ** #
-        # 启动文件接收器线程
+        # 启动文件接收器线程,启动前先关闭之前的线程
+        # commands.kill_all_threading()
         task_receiver = units.ThreadReceiver(1, "task_receiver")
         task_receiver.start() # python线程的停止需要自己实现
 
@@ -88,21 +91,21 @@ class MainWindow(QMainWindow):
         tab2.clear()
         print("刷新tabs")
         # 获取received的任务
-        tasks = data_sqlite.task_list("SELECT task_ID,local_path FROM task WHERE status_code='received'")
+        tasks = data_sqlite.task_list("SELECT task_ID,local_path,name,tel FROM task WHERE status_code='received'")
         for i in tasks:
-            content = "任务号：" + str(i[0] + "    文件路径：" + i[1] + "    下载完毕")
+            content = "任务号：" + str(i[0] + "    电话：" + i[3] + "    姓名：" + i[2] + "    下载完毕")
             tab1.addItem(content)
             task_dict[i[0]] = {"local_path": i[1]}
         # 获取downloading的任务
-        tasks = data_sqlite.task_list("SELECT task_ID,local_path FROM task WHERE status_code='receiving'")
+        tasks = data_sqlite.task_list("SELECT task_ID,local_path,name,tel FROM task WHERE status_code='receiving'")
         for i in tasks:
-            content = "任务号：" + str(i[0] + "    文件路径：" + i[1] + "    正在下载")
+            content = "任务号：" + str(i[0] + "    电话：" + i[3] + "    姓名：" + i[2] + "    正在下载")
             tab1.addItem(content)
             task_dict[i[0]] = {"local_path": i[1]}
         # 获取printing状态任务
-        tasks = data_sqlite.task_list("SELECT task_ID,local_path FROM task WHERE status_code='printing'")
+        tasks = data_sqlite.task_list("SELECT task_ID,local_path,name,tel FROM task WHERE status_code='printing'")
         for i in tasks:
-            content = "任务号：" + i[0] + "    文件路径：" + i[1] + "    已处理"
+            content = "任务号：" + i[0] + "    电话：" + i[3] + "    姓名：" + i[2] + "    已处理"
             tab2.addItem(content)
 
     def test(self):

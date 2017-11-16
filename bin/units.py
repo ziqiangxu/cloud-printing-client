@@ -62,6 +62,7 @@ def print_received_files():
 
 
 class ThreadReceiver(threading.Thread):
+    # 下载模块
     def __init__(self, threadID, name):
         threading.Thread.__init__(self)
         self.threadID = threadID
