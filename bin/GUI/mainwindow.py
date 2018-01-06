@@ -74,6 +74,7 @@ class MainWindow(QMainWindow):
 
         # ** 信号-槽绑定 ** #
         self.waiting_tasks.itemDoubleClicked.connect(self.double_click)
+        self.printed_tasks.itemDoubleClicked.connect(self.double_click)
         # quit.clicked.connect(self.test)
 
         # ** 开启其它模块 ** #
@@ -120,8 +121,7 @@ class MainWindow(QMainWindow):
         status_code = data_sqlite.task_list("SELECT status_code FROM task WHERE task_ID='%s'" % task_ID)
         print(status_code[0][0], "OK")
         if not status_code[0][0] == 'received':
-            print(WHERE, '本任务还没有下载好')
-            QMessageBox.information(self, "提示！", "本任务还没有下载好")
+            QMessageBox.information(self, "提示！", "本任务还没有下载好或者已经处理！")
             return False
         local_path = task_dict[task_ID]["local_path"]
         print(local_path)
