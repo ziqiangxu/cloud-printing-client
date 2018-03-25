@@ -1,6 +1,6 @@
 import time
 import threading
-import bin.lib.receiver3 as receiver
+import bin.my_lib.receiver3 as receiver
 
 '''
 def print_local_files():

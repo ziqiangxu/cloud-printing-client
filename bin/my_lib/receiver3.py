@@ -1,9 +1,9 @@
 import os
-import bin.lib.data_sqlite as data_sqlite
+import bin.my_lib.data_sqlite as data_sqlite
 import win32api
 from urllib.request import urlopen
 import bin.settings as settings
-import bin.lib.json_read_write as json_read_write
+import bin.my_lib.json_read_write as json_read_write
 
 RECEIVED_PATH = os.path.join(settings.WORKPLACE, "received")
 WHERE = "receiver3.py"
@@ -96,7 +96,7 @@ def get_files():
             # 读取info.json
             info = json_read_write.read(os.path.join(RECEIVED_PATH, tel, task_ID, "info.json"))
             if info:
-                print("DEBUG")
+                print(WHERE, "DEBUG")
                 user, name, nick_name, address = '', '', '', ''
                 try:
                     user = info['user']

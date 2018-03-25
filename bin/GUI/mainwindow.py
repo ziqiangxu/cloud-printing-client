@@ -7,11 +7,10 @@ from urllib.request import urlopen
 bin_path = os.getcwd()[:-4]  # bin作为工作目录
 print("工作目录为：", bin_path)
 sys.path.append(bin_path)
-import bin.lib.data_sqlite as data_sqlite
-import bin.lib.printer as printer
+import bin.my_lib.data_sqlite as data_sqlite
+import bin.my_lib.printer as printer
 import bin.units as units
 import bin.settings as settings
-import bin.lib.commands as commands
 
 task_dict = {}
 WHERE = 'mainwindow.py'
@@ -43,7 +42,7 @@ class MainWindow(QMainWindow):
         tabs.addTab(tabs.tab1, "等待处理")
         tabs.addTab(tabs.tab2, "已处理")
         tabs.addTab(tabs.tab3, "错误")
-        tabs.addTab(tabs.tab4, "警告")
+        #self.buildGUI()
 
         # 控件位置和大小
         printer_x = 10
@@ -65,11 +64,12 @@ class MainWindow(QMainWindow):
         self.waiting_tasks.setFixedSize(windows_width - 30, tabs.tab1.height() - 160)
         self.printed_tasks = QListWidget(tabs.tab2)
         self.printed_tasks.setFixedSize(windows_width - 30, tabs.tab1.height() - 160)
+
         # 填充tabs
-        self.fill_tabs()
+        self.fillTabs()
         # 每5秒刷新一次tabs内容
         tabs_flasher = QTimer(self)
-        tabs_flasher.timeout.connect(self.fill_tabs)
+        tabs_flasher.timeout.connect(self.fillTabs)
         tabs_flasher.start(5000)
 
         # ** 信号-槽绑定 ** #
@@ -78,19 +78,25 @@ class MainWindow(QMainWindow):
         # quit.clicked.connect(self.test)
 
         # ** 开启其它模块 ** #
-        # 启动文件接收器线程,启动前先关闭之前的线程
+        # 启动文件接收器线程，已知问题，下载线程无法在程序退出后自动停止
         # commands.kill_all_threading()
+        '''
         task_receiver = units.ThreadReceiver(1, "task_receiver")
         task_receiver.start() # python线程的停止需要自己实现
+        '''
 
     # ** 普通成员函数 ** #
-    def fill_tabs(self):
+
+    def buildGUI(self):
+        tabs.addTab(self.tabs.tab4, "警告")
+
+    def fillTabs(self):
         # 填充tabs
         tab1 = self.waiting_tasks
         tab2 = self.printed_tasks
         tab1.clear()
         tab2.clear()
-        print("刷新tabs")
+        print(WHERE, "刷新tabs")
         # 获取received的任务
         tasks = data_sqlite.task_list("SELECT task_ID,local_path,name,tel FROM task WHERE status_code='received'")
         for i in tasks:
