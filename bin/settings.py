@@ -4,21 +4,23 @@ from PyQt5.QtWidgets import *
 
 WHERE = "settings.py"
 OS = platform.system()
-if OS == "Linux":
-    print(WHERE, "当前运行的操作系统是Linux")
-    config = json_read_write.read("/home/xu/printer/config.json")
 
-elif OS == "Windows":
-    print(WHERE, "当前运行的操作系统是Windows")
-    config = json_read_write.read("c:\\printer\\config.json")
 
-else:
-    print(WHERE, "不支持的平台")
-if not config:
-    print(WHERE, "未找到config.json文件")
+def load_config():
+    if OS == "Linux":
+        print(WHERE, "当前运行的操作系统是Linux")
+        config_path = "/home/xu/printer/config.json"
 
-SITE = config["site"]
-SHOP_TEL = config["shop_tel"]
-WORKPLACE = config["workplace"]
-PROJECT_NAME = "cloud_printing_client"
-AUTO_DOWNLOAD_TASKS = config["auto_download_tasks"]
+    elif OS == "Windows":
+        print(WHERE, "当前运行的操作系统是Windows")
+        config_path = "c:\\printer\\config.json"
+    else:
+        print(WHERE, "不支持的平台")
+        return False
+    config = json_read_write.read(config_path)
+    if not config:
+        print(WHERE, "未找到config.json文件")
+    # 并对参数进行检查
+    config["os"] = OS
+    config["config_path"] = config_path
+    return config

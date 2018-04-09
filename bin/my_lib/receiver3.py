@@ -2,29 +2,25 @@ import os
 import bin.my_lib.data_sqlite as data_sqlite
 from PyQt5.QtWidgets import *
 from urllib.request import urlopen
-import bin.settings as settings
+import bin.settings
 import bin.my_lib.json_read_write as json_read_write
 
-RECEIVED_PATH = os.path.join(settings.WORKPLACE, "received")
+config = bin.settings.load_config()
+RECEIVED_PATH = os.path.join(config["workplace"], "received")
 WHERE = "receiver3.py"
-if not settings.SHOP_TEL:
-    # win32api.MessageBox(None, "请在C:\\printer\config.json文件填入您的账号和密码!")
-    # QMessageBox(title="请在C:\\printer\config.json文件填入您的账号和密码!")
-    print(WHERE, "请在C:\\printer\config.json文件填入您的账号和密码!")
 
 
 def get_tasks():
     # 获取任务列表
-    path_url = "%s/get_tasks/?tel=%s&status_code=10" % (settings.SITE, settings.SHOP_TEL)
+    path_url = "%s/get_tasks/?tel=%s&status_code=10" % (config["site"], config["shop_tel"])
     result = urlopen(path_url)
     result_str = str(result.read())
     task_path = result_str[2:-1].split("*")
     if task_path == [""]:
         print(WHERE, "没有获取到新任务", task_path)
         return False
-    print(WHERE, "获取到新任务", task_path)
     for i in task_path:
-        print(WHERE, "处理新任务info")
+        print(WHERE, "获取到新任务", i)
         segment = i.split("/")
         task_ID, tel, name, nick_name, address = segment[-2], segment[-3], None, None, None
         local_path, status_code, info, color, side = os.path.join(RECEIVED_PATH, tel, task_ID), "server_received", i, "0", "1"
@@ -38,7 +34,7 @@ def get_tasks():
 
 
 def file_url(tel, task_ID):
-    url = settings.SITE + "/download/?path=/home/cloud_printing/received_files/%s/%s" % (tel, task_ID)
+    url = config["site"] + "/download/?path=/home/cloud_printing/received_files/%s/%s" % (tel, task_ID)
     return url
 
 

@@ -1,6 +1,7 @@
 import time
 import threading
 import bin.my_lib.receiver3 as receiver
+WHERE = "bin.units"
 
 '''
 def print_local_files():
@@ -71,9 +72,9 @@ class ThreadReceiver(threading.Thread):
     def receiver(self):
         # 每10秒从服务器获取一次文件
         while True:
-            print("开始执行下载程序")
+            print(WHERE, "开始执行下载程序")
             receiver.start()
-            print("下载程序执行完毕")
+            print(WHERE, "下载程序执行完毕")
             time.sleep(10)
 
     def run(self):

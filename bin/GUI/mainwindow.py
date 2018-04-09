@@ -9,13 +9,13 @@ print("工作目录为：", bin_path)
 sys.path.append(bin_path)
 import bin.my_lib.data_sqlite as data_sqlite
 import bin.units as units
-import bin.settings as settings
+import bin.settings
 import bin.GUI.SubWindows as SubWindows
 import bin.my_lib.receiver3 as receiver
 
 task_dict = {}
 WHERE = 'MainWindow.py'
-
+CONFIG = bin.settings.load_config()
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
@@ -49,7 +49,7 @@ class MainWindow(QMainWindow):
         # ** 开启其它模块 ** #
         # 启动文件接收器线程，已知问题，下载线程无法在程序退出后自动停止
         # commands.kill_all_threading()
-        if settings.AUTO_DOWNLOAD_TASKS:
+        if CONFIG["auto_download_tasks"]:
             print(WHERE, "自动下载任务 开启")
             task_receiver = units.ThreadReceiver(1, "task_receiver")
             task_receiver.start() # python线程的停止需要自己实现
@@ -70,7 +70,7 @@ class MainWindow(QMainWindow):
         # ** 界面布局 ** #
         self.printer_name.setText("HP-Office-8100Pro")
         # 电话
-        self.tel.setText("手机:%s" % settings.SHOP_TEL)
+        self.tel.setText("手机:%s" % CONFIG["shop_tel"])
 
         # 控件位置和大小
         printer_x = 10
@@ -135,7 +135,7 @@ class MainWindow(QMainWindow):
             return False
         local_path = task_dict[task_id]["local_path"]
         print(local_path)
-        if settings.OS == "Windows":
+        if CONFIG["os"] == "Windows":
             import bin.my_lib.printer as printer
         else:
             print(WHERE, "暂不支持非Windows系统")
@@ -147,7 +147,7 @@ class MainWindow(QMainWindow):
             data_sqlite.execute("UPDATE task SET status_code='warning' WHERE task_ID='%s'" % task_id)
         self.waiting_tasks.takeItem(where)
         try:
-            url = settings.SITE + "/update_task/?task_ID=%s&status=20" % task_id
+            url = CONFIG["site"] + "/update_task/?task_ID=%s&status=20" % task_id
             urlopen(url)
         except:
             print(WHERE, "修改任务在服务器的状态为20失败")
