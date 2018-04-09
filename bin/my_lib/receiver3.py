@@ -1,6 +1,6 @@
 import os
 import bin.my_lib.data_sqlite as data_sqlite
-import win32api
+from PyQt5.QtWidgets import *
 from urllib.request import urlopen
 import bin.settings as settings
 import bin.my_lib.json_read_write as json_read_write
@@ -8,7 +8,9 @@ import bin.my_lib.json_read_write as json_read_write
 RECEIVED_PATH = os.path.join(settings.WORKPLACE, "received")
 WHERE = "receiver3.py"
 if not settings.SHOP_TEL:
-    win32api.MessageBox(None, "请在C:\\printer\config.json文件填入您的账号和密码!")
+    # win32api.MessageBox(None, "请在C:\\printer\config.json文件填入您的账号和密码!")
+    # QMessageBox(title="请在C:\\printer\config.json文件填入您的账号和密码!")
+    print(WHERE, "请在C:\\printer\config.json文件填入您的账号和密码!")
 
 
 def get_tasks():

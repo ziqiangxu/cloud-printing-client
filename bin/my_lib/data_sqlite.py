@@ -1,18 +1,22 @@
 import sqlite3
 import bin.settings as settings
 import os
+WHERE = "my_lib/data_sqlite.py"
 
 
 def task_list(sql='SELECT * FROM task'):
     # 返回sql语句执行结果,元组列表
     try:
-        data_connect = sqlite3.connect(os.path.join(settings.WORKPLACE, "received", "data.sqlite3"))
+        db_path = os.path.join(settings.WORKPLACE, "received", "data.sqlite3")
+        print(WHERE, "数据库文件路径", db_path)
+        data_connect = sqlite3.connect(db_path)
         # print("DEBUG", os.path.join(settings.WORKPLACE, "received", "data.sqlite3"))
         cursor = data_connect.cursor()
         cursor.execute(sql)
         result = cursor.fetchall()
         data_connect.close()
     except:
+        print(WHERE, sql, "执行失败")
         return False
     return result
 

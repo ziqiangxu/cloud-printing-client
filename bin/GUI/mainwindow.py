@@ -8,10 +8,10 @@ bin_path = os.getcwd()[:-4]  # bin作为工作目录
 print("工作目录为：", bin_path)
 sys.path.append(bin_path)
 import bin.my_lib.data_sqlite as data_sqlite
-import bin.my_lib.printer as printer
 import bin.units as units
 import bin.settings as settings
 import bin.GUI.SubWindows as SubWindows
+import bin.my_lib.receiver3 as receiver
 
 task_dict = {}
 WHERE = 'MainWindow.py'
@@ -30,7 +30,7 @@ class MainWindow(QMainWindow):
         self.tel = QLabel(self)  # 手机号码显示控件
         self.waiting_tasks = QListWidget(self.tabs.waiting)  # 等待打印列表
         self.printed_tasks = QListWidget(self.tabs.printed)  # 已处理列表
-        self.setting = QPushButton(self)
+        self.setting = QPushButton(self)  # 设置按钮
         # 对界面进行更细微的控制
         self.build_gui()
 
@@ -44,22 +44,20 @@ class MainWindow(QMainWindow):
         # ** 信号-槽绑定 ** #
         self.waiting_tasks.itemDoubleClicked.connect(self.double_click)
         self.printed_tasks.itemDoubleClicked.connect(self.double_click)
-        self.setting.clicked.connect(self.show_setting)
         # quit.clicked.connect(self.test)
 
         # ** 开启其它模块 ** #
         # 启动文件接收器线程，已知问题，下载线程无法在程序退出后自动停止
         # commands.kill_all_threading()
-        '''
-        task_receiver = units.ThreadReceiver(1, "task_receiver")
-        task_receiver.start() # python线程的停止需要自己实现
-        '''
+        if settings.AUTO_DOWNLOAD_TASKS:
+            print(WHERE, "自动下载任务 开启")
+            task_receiver = units.ThreadReceiver(1, "task_receiver")
+            task_receiver.start() # python线程的停止需要自己实现
+        else:
+            print(WHERE, "自动下载任务 未开启")
+            receiver.start()
 
     # ** 普通成员函数 ** #
-
-    def show_setting(self):
-        setting_window = SubWindows.SettingWindow()
-        setting_window.show()
 
     def build_gui(self):
         self.tabs.addTab(self.tabs.waiting, "等待处理")
@@ -137,6 +135,11 @@ class MainWindow(QMainWindow):
             return False
         local_path = task_dict[task_id]["local_path"]
         print(local_path)
+        if settings.OS == "Windows":
+            import bin.my_lib.printer as printer
+        else:
+            print(WHERE, "暂不支持非Windows系统")
+            return False
         if printer.print_files(local_path):  # 打印文件
             data_sqlite.execute("UPDATE task SET status_code='printing' WHERE task_ID='%s'" % task_id)
             self.printed_tasks.addItem(item.text())

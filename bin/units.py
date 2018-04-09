@@ -80,6 +80,7 @@ class ThreadReceiver(threading.Thread):
         self.receiver()
         print("main:开始线程："+ self.name)
 
+
 '''
 class ThreadPrintReceived (threading.Thread):
     def __init__(self, threadID, name):
