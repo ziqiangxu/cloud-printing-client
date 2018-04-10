@@ -4,6 +4,9 @@
 # 客户端计算机必须满足两个要求：
 # 1.设置pdf的默认打印程序（本程序虽然可以处理其它类型的文件，但是排版可能不容乐观）
 # 2.选择了默认打印机，不能是pdf打印机（因为pdf打印机工作时需要一个保存文件路径）
+# 3.使用sumatrapdf程序进行打印机控制
+
+
 import os
 import json
 import time
@@ -11,6 +14,7 @@ import win32print
 import win32api
 import re
 WHERE = "lib/printer.py"
+
 
 def task():    # 获取默认打印机的工作状态
     printer_name = win32print.GetDefaultPrinter()
@@ -60,6 +64,8 @@ def print_local_task(task_path):
                       "计算机的默认打印机不是类似于pdf打印机的这种文件打印机")
             time.sleep(5)    # 提交任务需要时间,最好的方法是在短暂等待之后获取文件的状态，查看是否被占用
             os.remove(task_path + file_name)
+
+
 '''
 os.chdir('C:/printer/received/18796282979')
 print(os.getcwd())
