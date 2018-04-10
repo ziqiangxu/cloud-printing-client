@@ -1,6 +1,7 @@
 import time
 import threading
 import bin.my_lib.receiver3 as receiver
+import bin.settings as settings
 WHERE = "bin.units"
 
 '''
@@ -68,18 +69,23 @@ class ThreadReceiver(threading.Thread):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.name = name
+        self.SWITCH = True
 
     def receiver(self):
         # 每10秒从服务器获取一次文件
-        while True:
+        while self.SWITCH:
             print(WHERE, "开始执行下载程序")
             receiver.start()
             print(WHERE, "下载程序执行完毕")
             time.sleep(10)
 
     def run(self):
+        print(WHERE, self.name, "线程开始")
         self.receiver()
-        print("main:开始线程："+ self.name)
+        print(WHERE, self.name, "线程已结束")
+
+    def stop(self):
+        self.SWITCH = False
 
 
 '''

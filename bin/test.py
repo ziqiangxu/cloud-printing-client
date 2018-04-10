@@ -68,7 +68,7 @@ class MainWindow(QMainWindow):
         for i in tasks:
             printing_tasks.addItem(i)
             item_instance = printing_tasks.item(index)
-            item_instance.setData(1, "test%d" % index)
+            item_instance.setData(1, "test_files%d" % index)
             index += 1
         printing_tasks.itemDoubleClicked.connect(double_click)
 

@@ -17,6 +17,7 @@ task_dict = {}
 WHERE = 'MainWindow.py'
 CONFIG = bin.settings.load_config()
 
+
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
@@ -44,15 +45,15 @@ class MainWindow(QMainWindow):
         # ** 信号-槽绑定 ** #
         self.waiting_tasks.itemDoubleClicked.connect(self.double_click)
         self.printed_tasks.itemDoubleClicked.connect(self.double_click)
-        # quit.clicked.connect(self.test)
+        # quit.clicked.connect(self.test_files)
 
         # ** 开启其它模块 ** #
         # 启动文件接收器线程，已知问题，下载线程无法在程序退出后自动停止
         # commands.kill_all_threading()
         if CONFIG["auto_download_tasks"]:
             print(WHERE, "自动下载任务 开启")
-            task_receiver = units.ThreadReceiver(1, "task_receiver")
-            task_receiver.start() # python线程的停止需要自己实现
+            self.task_receiver = units.ThreadReceiver(1, "task_receiver")
+            self.task_receiver.start() # python线程的停止需要自己实现
         else:
             print(WHERE, "自动下载任务 未开启")
             receiver.start()
@@ -121,6 +122,12 @@ class MainWindow(QMainWindow):
 
     def test(self):
         print(WHERE, "Test OK!")
+
+    # 重写的事件
+    def closeEvent(self, QCloseEvent):
+        self.task_receiver.stop()  # 停止下载线程
+        print(WHERE, "主窗口关闭，停止下载线程")
+        QCloseEvent.accept()
 
     # ** 槽函数 ** #
     def double_click(self, item):
