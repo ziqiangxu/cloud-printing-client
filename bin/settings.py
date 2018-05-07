@@ -1,25 +1,31 @@
-import bin.my_lib.json_read_write as json_read_write
 import platform
-from PyQt5.QtWidgets import *
+import bin.my_lib.data_sqlite as db
 
-WHERE = "settings.py"
 OS = platform.system()
+PRINTER_LIST = []
 
 
 def load_config():
     if OS == "Linux":
-        print(WHERE, "当前运行的操作系统是Linux")
+        print(__file__, "当前操作系统--Linux")
         config_path = "/home/xu/printer/config.json"
 
     elif OS == "Windows":
-        print(WHERE, "当前运行的操作系统是Windows")
-        config_path = "c:\\printer\\config.json"
+        print(__file__, "当前操作系统--Windows")
+        config_path = "c:/printer/config.json"
+        import win32print
+        for printer in win32print.EnumPrinters(win32print.PRINTER_ENUM_LOCAL):
+            PRINTER_LIST.append(printer[2])
     else:
-        print(WHERE, "不支持的平台")
+        print(__file__, "不支持的平台")
         return False
-    config = json_read_write.read(config_path)
-    if not config:
-        print(WHERE, "未找到config.json文件")
+    # config 是一个字典
+    config = {}
+    res = db.execute('SELECT * FROM KEY_VALUE')
+    if not res:
+        return False
+    for i in res:
+        config[i[0]] = i[1]
     # 并对参数进行检查
     config["os"] = OS
     config["config_path"] = config_path

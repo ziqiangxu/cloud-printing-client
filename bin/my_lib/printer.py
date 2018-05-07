@@ -4,7 +4,6 @@
 # 客户端计算机必须满足两个要求：
 # 1.设置pdf的默认打印程序（本程序虽然可以处理其它类型的文件，但是排版可能不容乐观）
 # 2.选择了默认打印机，不能是pdf打印机（因为pdf打印机工作时需要一个保存文件路径）
-# 3.使用sumatrapdf程序进行打印机控制
 
 
 import os
@@ -18,11 +17,13 @@ WHERE = "lib/printer.py"
 
 def task():    # 获取默认打印机的工作状态
     printer_name = win32print.GetDefaultPrinter()
+    print(WHERE, "默认打印机", printer_name)
     handle_printer = win32print.OpenPrinter(printer_name)    # 获取打印机句柄
     printer_info = win32print.GetPrinter(handle_printer, 2)    # 调用相关函数进行信息查询
     task_list = win32print.EnumJobs(handle_printer,0,10)    # 参数（句柄，编文档号，枚举条数）
     return printer_info["cJobs"]    # 获取当前打印机任务数目
 
+task()
 
 def __doc__():
     return "receiver:这是打印文档的核心函数，需要传入打印文件夹的路径作为参数"

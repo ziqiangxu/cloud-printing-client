@@ -11,11 +11,14 @@ def read(path):
     try:
         print(path)
         f = open(path, 'r')
-        content = json.load(f)
+        content = dict(json.load(f))
         f.close()
         return content
+    except FileNotFoundError:
+        print(__file__, "Can't find the file")
+        return {}
     except:
-        return False
+        return {}
 
 
 def write(path, dict_):
