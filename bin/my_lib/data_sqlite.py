@@ -1,7 +1,14 @@
 import sqlite3
 import os
+import platform
+
 print(__file__, os.getcwd())
-CONFIG = {"workplace": "c:/printer"}  # 根据当前路径找到data.sqlite
+OS = platform.system()
+if OS == 'Windows':
+    CONFIG = {"workplace": "c:/printer"}  # 根据当前路径找到data.sqlite
+elif OS == 'Linux':
+    home = os.environ['HOME']
+    CONFIG = {'workplace': os.path.join(home, 'printer')}
 
 
 def task_list(sql='SELECT * FROM task'):

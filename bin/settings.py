@@ -1,17 +1,18 @@
 import platform
 import bin.my_lib.data_sqlite as db
+import os
 
 OS = platform.system()
 PRINTER_LIST = []
 
 
 def load_config():
+    print(__file__, "当前操作系统--", OS)
     if OS == "Linux":
-        print(__file__, "当前操作系统--Linux")
-        config_path = "/home/xu/printer/config.json"
+        home = os.environ['HOME']
+        config_path = os.path.join(home, 'printer/config.json')
 
     elif OS == "Windows":
-        print(__file__, "当前操作系统--Windows")
         config_path = "c:/printer/config.json"
         import win32print
         for printer in win32print.EnumPrinters(win32print.PRINTER_ENUM_LOCAL):
